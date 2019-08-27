@@ -9,9 +9,9 @@
 #       format_version: '1.2'
 #       jupytext_version: 1.2.1
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: dask 3.7
 #     language: python
-#     name: python3
+#     name: dask
 #   toc:
 #     base_numbering: 1
 #     nav_menu: {}
@@ -38,14 +38,11 @@ import dask
 dask.__version__
 
 # %%
-# from dask_jobqueue import PBSCluster
-# cluster = PBSCluster()
-# cluster.scale(50)
-# cluster
+from dask.distributed import Client
+client = Client(n_workers=6, threads_per_worker=1, processes=False, memory_limit='3.0GB')
 
 # %%
-from dask.distributed import Client
-client = Client()
+client
 
 # %% [markdown]
 # ## Create a Dask Dataframe
@@ -56,15 +53,21 @@ import dask.dataframe as dd
 df = dd.demo.make_timeseries(start='2000-01-01',
                              end='2010-12-31',
                              dtypes={'x': float, 'y': float, 'id': int},
-                             freq='10ms',
+                             freq='240ms',
                              partition_freq='24h')
 df
 
 # %%
-df = df.persist()
+the_calc=df.groupby('id')[['x', 'y']].mean()
 
 # %%
-# %time df.groupby('id')[['x', 'y']].mean().compute()
+the_calc
+
+# %%
+out=the_calc.compute()
+
+# %%
+out
 
 # %%
 df.x.rolling('1min').std().loc['2000-01-02':'2010-12-30'].idxmax().compute()
@@ -76,3 +79,8 @@ s
 
 # %%
 ss = s.persist()
+
+# %%
+help(dd.demo.make_timeseries)
+
+# %%
