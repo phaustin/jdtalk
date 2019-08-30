@@ -3,9 +3,13 @@
 ## install miniconda
 
 1. wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-2. bash Miniconda3*
+2. Run the installer
 
-   (accept all defaults, and agree to let installer append activation lines to your .bashrc)
+    bash Miniconda3*
+
+    (accept all defaults, and agree to let installer append activation lines to your .bashrc)
+
+2b. start a fresh bash shell
 
 3. Make conda-forge the default channel
 
@@ -37,7 +41,7 @@
 
    python big_data.py
 
-## this should block while it does work on six workers, with status graphs on port 8787
+### this should block while it does work on six workers, with status graphs on port 8787
 
 
 
