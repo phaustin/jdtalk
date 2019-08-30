@@ -5,7 +5,7 @@
 1. wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 2. bash Miniconda3*
 
-(accept all defaults, and agree to let installer append activation lines to your .bashrc)
+   (accept all defaults, and agree to let installer append activation lines to your .bashrc)
 
 3. Make conda-forge the default channel
 
@@ -28,16 +28,16 @@
    git clone https://github.com/phaustin/jdtalk.git
 
 7. create and activate the environment
-
-   cd jdtalk/notebooks/python
-   conda env create -f environment.yml
-   conda activate dask
-
+   ```
+     cd jdtalk/notebooks/python
+     conda env create -f environment.yml
+     conda activate dask
+   ```
 8. Run the script
 
    python big_data.py
 
-this should block while it does work on six workers, with status graphs on port 8787
+## this should block while it does work on six workers, with status graphs on port 8787
 
 
 
