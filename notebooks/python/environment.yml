@@ -2,8 +2,6 @@ name: dask
 channels:
   - conda-forge
   - defaults
-  - phaustin/label/newroc
-  - phaustin
 dependencies:
   - _libgcc_mutex=0.1=main
   - asn1crypto=0.24.0=py37_1003
