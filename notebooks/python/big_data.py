@@ -9,9 +9,9 @@
 #       format_version: '1.2'
 #       jupytext_version: 1.2.1
 #   kernelspec:
-#     display_name: dask 3.7
+#     display_name: Python 3
 #     language: python
-#     name: dask
+#     name: python3
 #   toc:
 #     base_numbering: 1
 #     nav_menu: {}
